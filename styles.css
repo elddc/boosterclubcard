@@ -1,0 +1,81 @@
+/* containers */
+body, html {
+    font: 24px Calibri, sans-serif;
+    height: 100%;
+    margin: 0;
+}
+.container {
+    /* center card on screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    /* page background color */
+    background-color: black;
+}
+.card {
+    position: relative;
+    width: 570px; /* must update viewport width to match */
+    height: 350px; /* keep aspect ratio (width/height) close to 1.6 for best results */
+    background-color: #9EB8D9;
+}
+.center div {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* top section */
+.row {
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 30px;
+    height: 40%;
+
+    /* bottom border */
+    box-shadow: inset 0 -20px black;
+}
+img {
+    height: 130px;
+    width: 140px; /* stretched to match the original look; source image has aspect ratio of 1 */
+    padding-top: 10px;
+}
+.header {
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 20px;
+
+    /* text */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 1;
+    text-align: center;
+}
+
+.subtitle { /* year */
+    font-weight: bold;
+    font-size: 28px;
+}
+.title { /* card type */
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 1;
+}
+.signature {
+    position: absolute;
+    bottom: 10px;
+    left: 3%;
+    width: 94%;
+    display: flex;
+}
+.blank { /* line for signature */
+    border-bottom: 2px solid black;
+    flex: 1;
+    margin-left: 1%;
+}
