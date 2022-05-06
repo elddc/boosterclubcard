@@ -1,18 +1,3 @@
-@media screen and (max-width: 570px) {
-    div.card {
-        width: 100vw;
-        height: calc(100vw / 1.57);
-        font-size: 4vw;
-    }
-}
-
-@media screen and (max-height: 350px) {
-    div.card {
-        width: calc(90vw * 1.57);
-        height: 90vh;
-    }
-}
-
 /* containers */
 body, html {
     font: 24px Calibri, sans-serif;
@@ -29,70 +14,39 @@ body, html {
     /* page background color */
     background-color: black;
 }
-.card {
-    position: relative;
-    width: 550px; /* must update viewport width to match */
-    height: 350px; /* keep aspect ratio (width/height) close to 1.57 for best results */
-    background-color: #9EB8D9;
-}
 
-/* top section */
-.row {
-    /* layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 5%;
-    height: 40%;
-
-    /* bottom border */
-    box-shadow: inset 0 -.8em black;
-}
-img {
-    height: 5.5em;
-    width: 5.9em; /* stretched to match the original look; source image has aspect ratio of 1 */
-    padding-top: .4em;
-}
 .header {
-    /* layout */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    margin-bottom: .4em;
-
     /* text */
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.8em;
-    line-height: 1;
-    text-align: center;
+    font-size: 45px;
 }
 
-/* bottom section */
-.center div {
-    text-align: center;
-    padding-top: 1.8%;
-}
 .subtitle { /* year */
     font-weight: bold;
-    font-size: 1.2em;
-    line-height: 1;
+    font-size: 28px;
+    text-anchor: middle;
 }
 .title { /* card type */
     font-weight: bold;
-    font-size: 1.6em;
-    line-height: 1;
+    font-size: 42px;
+    letter-spacing: -1px;
+    text-anchor: middle;
+}
+.description {
+    font-size: 24px;
+    text-anchor: middle;
 }
 .signature {
-    position: absolute;
-    bottom: .3em;
-    left: 3%;
+    margin-left: 3%;
     width: 94%;
     display: flex;
 }
 .blank { /* line for signature */
     border-bottom: 2px solid black;
+    padding-bottom: 2px;
+    margin-top: -4px;
     flex: 1;
     margin-left: 1%;
+    text-align: center;
 }
