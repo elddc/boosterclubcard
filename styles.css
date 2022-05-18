@@ -1,52 +1,116 @@
+@media screen and (max-width: 570px) {
+    div.card {
+        width: 100vw;
+        height: calc(100vw / 1.57);
+        font-size: 4vw;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    div.card {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+
+        width: 157vh;
+        width: calc(var(--vh, 1vh) * 157);
+
+        font-size: 6vh;
+        font-size: calc(var(--vh, 1vh) * 6);
+    }
+}
+
 /* containers */
 body, html {
-    font: 24px Calibri, sans-serif;
+    font: 22px Helvetica, serif;
     height: 100%;
     margin: 0;
+    line-height: 1.2;
+    background-color: black;
 }
 .container {
-    /* center card on screen */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-
-    /* page background color */
-    background-color: black;
+}
+.card {
+    position: relative;
+    width: 25em;
+    height: 15em; /* keep aspect ratio (width/height) close to 1.57 for best results */
+    background-color: #9EB8D9;
 }
 
+/* top section */
+.row {
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 40%;
+
+    /* bottom border */
+    box-shadow: inset 0 -.8em black;
+}
+img {
+    height: 6em;
+    width: 6.5em; /* stretched to match the original look; source image has aspect ratio of 1 */
+    padding-top: .4em;
+}
 .header {
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-bottom: .4em;
+
     /* text */
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 1.8em;
+    line-height: 1;
+    text-align: center;
 }
 
-.subtitle { /* year */
-    font-weight: bold;
-    font-size: 28px;
-    text-anchor: middle;
+/* bottom section */
+.center div {
+    text-align: center;
+    padding-top: 1.6%;
 }
-.title { /* card type */
+.year {
     font-weight: bold;
-    font-size: 42px;
-    letter-spacing: -1px;
-    text-anchor: middle;
+    font-size: 1.15em;
+    line-height: 1;
 }
-.description {
-    font-size: 24px;
-    text-anchor: middle;
+.card-title {
+    font-weight: bold;
+    font-size: 1.6em;
+    line-height: 1;
 }
 .signature {
-    margin-left: 3%;
+    position: absolute;
+    bottom: .3em;
+    left: 3%;
     width: 94%;
     display: flex;
 }
-.blank { /* line for signature */
+#input {
+    background-color: inherit;
+    border: none;
+    font: inherit;
     border-bottom: 2px solid black;
-    padding-bottom: 2px;
-    margin-top: -4px;
     flex: 1;
     margin-left: 1%;
     text-align: center;
+}
+::placeholder {
+    color: #676767;
+}
+
+/* download image button */
+button {
+    border: none;
+    background-color: transparent;
+    color: white;
 }
