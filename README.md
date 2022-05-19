@@ -18,6 +18,7 @@ If you are familiar with HTML/CSS/JS, you can disregard the rest of this documen
 - [File Directory](#file-directory)
 - [Explanations](#explanations)
 - [Page Template](#full-html-template)
+- [Issues](#known-issues)
 
 ### File Directory
 
@@ -151,3 +152,6 @@ Replace the text in `ALL CAPS`.
 </body>
 </html>
 ```
+
+### Known Issues
+Autofill creates a yellow background in Safari
