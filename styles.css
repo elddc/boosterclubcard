@@ -1,3 +1,4 @@
+/* special styling for phones on portrait mode */
 @media screen and (max-width: 570px) {
     div.card {
         width: 100vw;
@@ -6,10 +7,11 @@
     }
 }
 
+/* special styling for phones on landscape mode */
 @media screen and (max-height: 350px) {
     div.card {
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
+        height: 100vh; /* if browser does not support CSS variables */
+        height: calc(var(--vh, 1vh) * 100); /* --vh variable comes from JS */
 
         width: 157vh;
         width: calc(var(--vh, 1vh) * 157);
@@ -20,29 +22,28 @@
 }
 
 /* containers */
-body, html {
-    font: 22px Helvetica, serif;
+body, html { /* page */
+    font: 22px Helvetica, serif; /* sizes all scale around this font size */
     height: 100%;
     margin: 0;
     line-height: 1.2;
     background-color: black;
 }
-.container {
+.container { /* blank space around card */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
-.card {
+.card { /* digital booster card */
     position: relative;
     width: 25em;
     height: 15em; /* keep aspect ratio (width/height) close to 1.57 for best results */
-    background-color: #9EB8D9;
+    background-color: white; /* default, should be overwritten in HTML */
 }
 
 /* top section */
-.row {
-    /* layout */
+.row { /* container with bottom border */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -52,12 +53,12 @@ body, html {
     /* bottom border */
     box-shadow: inset 0 -.8em black;
 }
-img {
+img { /* image of viking head */
     height: 6em;
     width: 6.5em; /* stretched to match the original look; source image has aspect ratio of 1 */
     padding-top: .4em;
 }
-.header {
+.header { /* "Fremd Viking Booster Club" text */
     /* layout */
     display: flex;
     justify-content: center;
@@ -65,8 +66,8 @@ img {
     width: 70%;
     margin-bottom: .4em;
 
-    /* text */
-    text-transform: uppercase;
+    /* text formatting */
+    text-transform: uppercase; /* makes text all caps */
     font-weight: bold;
     font-size: 1.8em;
     line-height: 1;
@@ -74,28 +75,28 @@ img {
 }
 
 /* bottom section */
-.center div {
+.center div { /* container */
     text-align: center;
     padding-top: 1.6%;
 }
-.year {
+.year { /* years */
     font-weight: bold;
     font-size: 1.15em;
     line-height: 1;
 }
-.card-title {
+.card-title { /* type of membership */
     font-weight: bold;
     font-size: 1.6em;
     line-height: 1;
 }
-.signature {
+.name { /* name of buyer */
     position: absolute;
     bottom: .3em;
     left: 3%;
     width: 94%;
     display: flex;
 }
-#input {
+#input { /* text input including "signature line" */
     background-color: inherit;
     border: none;
     font: inherit;
@@ -104,13 +105,19 @@ img {
     margin-left: 1%;
     text-align: center;
 }
-::placeholder {
+::placeholder { /* placeholder text before name is typed (reads "type name here") */
     color: #676767;
 }
 
 /* download image button */
-button {
+.download { /* button */
     border: none;
     background-color: transparent;
     color: white;
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+}
+.material-icons { /* icon */
+    font-size: 2em;
 }

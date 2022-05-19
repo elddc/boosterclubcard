@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Viking Booster Card</title>
-    <link rel="icon" href="assets/logo.png" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.png">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
     <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
     <script src="https://cdn.bootcss.com/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="card">
+    <div class="card" style="background-color: #9EB8D9;">
         <div class="row">
             <img src="assets/logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
@@ -25,14 +26,14 @@
                 4 tickets per game<br />
                 Home football, home boys &#38; girls basketball
             </div>
-            <div class="signature">
+            <div class="name">
                 <label for="input">Buyer Name:</label>
                 <input type="text" id="input" placeholder="Type Name Here"/>
             </div>
         </div>
     </div>
 
-    <button onClick="download()">
+    <button onClick="download()" class="download">
         <span class="material-icons">download</span>
     </button>
 </div>
@@ -51,11 +52,11 @@
             document.activeElement.blur();
     })
 
+    //download image to device
     function download() {
-        domtoimage.toBlob(document.querySelector('.card'))
-            .then(function(blob) {
-                window.saveAs(blob, 'boostercard.png');
-            });
+        domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
+            window.saveAs(blob, 'boostercard.png');
+        });
     }
 </script>
 </body>

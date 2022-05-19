@@ -6,10 +6,18 @@ The viking head logo is taken from the [Fremd Booster Club website](https://www.
 
 ## Documentation
 
-This project is made in vanilla JS/HTML/CSS. There is a separate `.html` file for each type of card, 
-with a single stylesheet shared across all pages.
+This project is made in vanilla JS/HTML/CSS.
+There is a separate `.html` file for each type of card, 
+with a single stylesheet shared across all pages. 
+It also uses the `dom-to-image` and `file-saver` libraries.
 
-Below is a thorough beginner-friendly explanation, to allow for easy modification
+This page includes a thorough beginner-friendly explanation, to allow for easy modification.
+If you are familiar with HTML/CSS/JS, you can disregard the rest of this document.
+
+### Table of Contents
+- [File Directory](#file-directory)
+- [Explanations](#explanations)
+- [Page Template](#full-html-template)
 
 ### File Directory
 
@@ -19,22 +27,45 @@ Below is a thorough beginner-friendly explanation, to allow for easy modificatio
 * `pages/`
   * `...` &larr; html files for each card, see below for template with comments
 
-### HTML Template
+### Explanations
 
-See comments for an explanation of what each section is
+See comments for a description of what each section is:
 ```html
 <!-- This is a comment -->
 
 <script>
   //This is a comment inside a script tag
 </script>
+
+<style>
+  /* this is a comment inside a .css document */
+</style>
 ```
 The roles of each line are described by the class name, for example the year:
 ```html
-<div class="year" />
+<div class="year" />2021-2022</div>
 ```
 
-Text in ALL CAPS is editable text to display on the card
+Text in `ALL CAPS` is editable text to control the content of the card.<br>
+Be sure to replace all the text in `ALL CAPS`, including the color of the card:
+```html
+<!-- color can be a hex code: #RRGGBB 
+                      or rbg: rbg(R,G,B) -->
+<div class="card" style="background-color: COLOR;">...</div>
+```
+Line breaks can be added with this symbol:
+```html
+<br>
+```
+
+Note that some symbols (such as &) should be escaped, requiring a special code:
+```html
+'&#38' with a semicolon (;) produces '&#38;'
+```
+
+### Full HTML Template
+Copy and paste this into a `.html` file to create a new page. 
+Replace the text in `ALL CAPS`.
 
 ```html
 <!DOCTYPE html>
@@ -48,12 +79,19 @@ Text in ALL CAPS is editable text to display on the card
     <title>Viking Booster Card</title>
     <link rel="icon" href="assets/logo.png" />
 
-    <!-- styling -->
+    <!-- Google Material Icons (for download button) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- page styling (must go after Google styling) -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- external libraries used to save image -->
+    <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <script src="https://cdn.bootcss.com/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="card">
+    <div class="card" style="background-color: COLOR;">
         <!-- top part of card -->
         <div class="row">
             <img src="assets/logo.png" alt="Viking Logo"/>
@@ -66,17 +104,23 @@ Text in ALL CAPS is editable text to display on the card
             <div class="card-title">TYPE OF CARD</div>
             <div>
                 DESCRIPTION - FIRST LINE
-                <br/>
+                <br>
                 DESCRIPTION - SECOND LINE (OPTIONAL)
             </div>
-            <div class="signature">
+            <div class="name">
                 <label for="input">Buyer Name:</label>
                 <input type="text" id="input" placeholder="Type Name Here"/>
             </div>
         </div>
-        
     </div>
+
+    <!-- download image button at lower right -->
+    <button onClick="download()" class="download">
+        <!-- this uses Google Material Icons, can also be replaced with an image -->
+        <span class="material-icons">download</span>
+    </button>
 </div>
+
 <!-- JavaScript code -->
 <script>
   //remove focus on text input when Enter key is pressed
@@ -94,13 +138,16 @@ Text in ALL CAPS is editable text to display on the card
     resize();
     //trigger resize() function when screen dimensions change
     window.addEventListener('resize', resize);
-
+    
+    //download image to device
+    function download() {
+        //convert HTML element with class 'card' to image
+        //then save as 'boostercard.png'
+        domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
+            window.saveAs(blob, 'boostercard.png'); //file name can be changed
+        });
+    }
 </script>
 </body>
 </html>
-```
-
-To create a line break, use this symbol: 
-```html
-<br/>
 ```
