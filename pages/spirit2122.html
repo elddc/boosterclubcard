@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Viking Booster Card</title>
+    <link rel="icon" href="assets/logo.png">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <script src="https://cdn.bootcss.com/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="card" style="background-color: #9EB8D9;">
+        <div class="row">
+            <img src="../assets/logo.png" alt="Viking Logo"/>
+            <div class="header">Fremd Viking Booster Club</div>
+        </div>
+        <div class="center">
+            <div class="year">2021-2022</div>
+            <div class="card-title">Honored Viking Spirit Membership</div>
+            <div>
+                4 tickets per home game: football, boys/girls basketball<br />
+	            6 tickets to cultural events
+            </div>
+            <div class="name">
+                <label for="input">Buyer Name:</label>
+                <input type="text" id="input" placeholder="Type Name Here"/>
+            </div>
+        </div>
+    </div>
+
+    <button onClick="download()" class="download">
+        <span class="material-icons">download</span>
+    </button>
+</div>
+
+<script>
+    //responsive dimensions for mobile landscape view
+    function resize() {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    //remove focus on input after Enter key is pressed
+    document.querySelector('#input').addEventListener('keydown', ({key}) => {
+        if (key === 'Enter')
+            document.activeElement.blur();
+    })
+
+    //download image to device
+    function download() {
+        domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
+            window.saveAs(blob, 'boostercard.png');
+        });
+    }
+</script>
+</body>
+</html>

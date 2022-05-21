@@ -84,7 +84,7 @@ Replace the text in `ALL CAPS`.
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- page styling (must go after Google styling) -->
-    <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="../styles.css">
 
     <!-- external libraries used to save image -->
     <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
@@ -95,7 +95,7 @@ Replace the text in `ALL CAPS`.
     <div class="card" style="background-color: COLOR;">
         <!-- top part of card -->
         <div class="row">
-            <img src="assets/logo.png" alt="Viking Logo"/>
+	        <img src="../assets/logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
         </div>
 
