@@ -61,7 +61,7 @@ Line breaks can be added with this symbol:
 
 Note that some symbols (such as &) should be escaped, requiring a special code:
 ```html
-'&#38' with a semicolon (;) produces '&#38;'
+&#38; produces &
 ```
 
 ### Full HTML Template
@@ -154,4 +154,4 @@ Replace the text in `ALL CAPS`.
 ```
 
 ### Known Issues
-Autofill creates a yellow background in Safari
+- Autofill creates a yellow background in Safari
