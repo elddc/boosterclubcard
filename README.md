@@ -16,57 +16,22 @@ If you are familiar with HTML/CSS/JS, you can disregard the rest of this documen
 
 ### Table of Contents
 - [File Directory](#file-directory)
-- [Explanations](#explanations)
 - [Page Template](#full-html-template)
+- [Explanations](#explanations)
 - [Issues](#known-issues)
 
 ### File Directory
 
 * `styles.css` &larr; styles live here
-* `assets/ `
-  * `logo.png`     &larr; logo on card, icon (image in browser tab)
+* `logo.png` &larr; logo on card, image in browser tab
 * `pages/`
   * `...` &larr; html files for each card, see below for template with comments
-
-### Explanations
-
-See comments for a description of what each section is:
-```html
-<!-- This is a comment -->
-
-<script>
-  //This is a comment inside a script tag
-</script>
-
-<style>
-  /* this is a comment inside a .css document */
-</style>
-```
-The roles of each line are described by the class name, for example the year:
-```html
-<div class="year" />2021-2022</div>
-```
-
-Text in `ALL CAPS` is editable text to control the content of the card.<br>
-Be sure to replace all the text in `ALL CAPS`, including the color of the card:
-```html
-<!-- color can be a hex code: #RRGGBB 
-                      or rbg: rbg(R,G,B) -->
-<div class="card" style="background-color: COLOR;">...</div>
-```
-Line breaks can be added with this symbol:
-```html
-<br>
-```
-
-Note that some symbols (such as &) should be escaped, requiring a special code:
-```html
-&#38; produces &
-```
 
 ### Full HTML Template
 Copy and paste this into a `.html` file to create a new page. 
 Replace the text in `ALL CAPS`.
+
+[Jump To Explanation](#explanations)
 
 ```html
 <!DOCTYPE html>
@@ -78,7 +43,7 @@ Replace the text in `ALL CAPS`.
     
     <!-- text and image displayed in browser tab -->
     <title>Viking Booster Card</title>
-    <link rel="icon" href="assets/logo.png" />
+    <link rel="icon" href="../logo.png" />
 
     <!-- Google Material Icons (for download button) -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -95,7 +60,7 @@ Replace the text in `ALL CAPS`.
     <div class="card" style="background-color: COLOR;">
         <!-- top part of card -->
         <div class="row">
-	        <img src="../assets/logo.png" alt="Viking Logo"/>
+	        <img src="../logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
         </div>
 
@@ -151,6 +116,42 @@ Replace the text in `ALL CAPS`.
 </script>
 </body>
 </html>
+```
+
+### Explanations
+
+See comments for a description of what each section is:
+```html
+<!-- This is a comment -->
+
+<script>
+  //This is a comment inside a script tag
+</script>
+
+<style>
+  /* this is a comment inside a .css document */
+</style>
+```
+The roles of each line are described by the class name, for example the year:
+```html
+<div class="year" />2021-2022</div>
+```
+
+In the template, text in `ALL CAPS` is editable text to control the content of the card.<br>
+Be sure to replace all the text in `ALL CAPS`, including the color of the card:
+```html
+<!-- color can be a hex code: #RRGGBB 
+                      or rbg: rbg(R,G,B) -->
+<div class="card" style="background-color: COLOR;">...</div>
+```
+Line breaks can be added with this symbol:
+```html
+<br>
+```
+
+Note that some symbols (such as &) should be escaped, requiring a special code:
+```html
+&#38; produces &
 ```
 
 ### Known Issues
