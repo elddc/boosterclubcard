@@ -43,24 +43,29 @@ Replace the text in `ALL CAPS`.
     
     <!-- text and image displayed in browser tab -->
     <title>Viking Booster Card</title>
-    <link rel="icon" href="../logo.png" />
+    <link rel="icon" href="../logo.png">
 
-    <!-- Google Material Icons (for download button) -->
+    <!-- set the background color of the card -->
+    <style>
+        :root {
+            --background-color: COLOR;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- page styling (must go after Google styling) -->
-	<link rel="stylesheet" href="../styles.css">
-
+    <link rel="stylesheet" href="../styles.css">
+    
     <!-- external libraries used to save image -->
-    <script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
-    <script src="https://cdn.bootcss.com/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="card" style="background-color: COLOR;">
+    <div class="card">
         <!-- top part of card -->
         <div class="row">
-	        <img src="../logo.png" alt="Viking Logo"/>
+            <img src="../logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
         </div>
 
@@ -89,7 +94,7 @@ Replace the text in `ALL CAPS`.
 
 <!-- JavaScript code -->
 <script>
-  //remove focus on text input when Enter key is pressed
+    //remove focus on text input when Enter key is pressed
     document.querySelector('#input').addEventListener('keydown', ({key}) => {
       if (key === 'Enter')
         document.activeElement.blur();
@@ -116,6 +121,7 @@ Replace the text in `ALL CAPS`.
 </script>
 </body>
 </html>
+
 ```
 
 ### Explanations
@@ -134,7 +140,7 @@ See comments for a description of what each section is:
 ```
 The roles of each line are described by the class name, for example the year:
 ```html
-<div class="year" />2021-2022</div>
+<div class="year"/>2021-2022</div>
 ```
 
 In the template, text in `ALL CAPS` is editable text to control the content of the card.<br>
@@ -142,7 +148,11 @@ Be sure to replace all the text in `ALL CAPS`, including the color of the card:
 ```html
 <!-- color can be a hex code: #RRGGBB 
                       or rbg: rbg(R,G,B) -->
-<div class="card" style="background-color: COLOR;">...</div>
+<style>
+    :root {
+        --background-color: COLOR;
+    }
+</style>
 ```
 Line breaks can be added with this symbol:
 ```html
@@ -150,9 +160,6 @@ Line breaks can be added with this symbol:
 ```
 
 Note that some symbols (such as &) should be escaped, requiring a special code:
-```html
+```
 &#38; produces &
 ```
-
-### Known Issues
-- Autofill creates a yellow background in Safari

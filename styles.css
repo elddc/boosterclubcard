@@ -10,13 +10,8 @@
 /* special styling for phones on landscape mode */
 @media screen and (max-height: 350px) {
     div.card {
-        height: 100vh; /* if browser does not support CSS variables */
         height: calc(var(--vh, 1vh) * 100); /* --vh variable comes from JS */
-
-        width: 157vh;
         width: calc(var(--vh, 1vh) * 157);
-
-        font-size: 6vh;
         font-size: calc(var(--vh, 1vh) * 6);
     }
 }
@@ -39,7 +34,7 @@ body, html { /* page */
     position: relative;
     width: 26em;
     height: 15em; /* keep aspect ratio (width/height) close to 1.57 for best results */
-    background-color: white; /* default, should be overwritten in HTML */
+    background-color: var(--background-color);
 }
 
 /* top section */
@@ -92,14 +87,15 @@ img { /* image of viking head */
 .name { /* name of buyer */
     position: absolute;
     bottom: .45em;
-    left: .8em;
-    width: 24.4em;
+    left: 3%;
+    width: 94%;
     display: flex;
 }
 #input { /* text input including "signature line" */
     background-color: inherit;
-    border: none;
     font: inherit;
+    border: none;
+    border-radius: 0;
     border-bottom: 2px solid black;
     flex: 1;
     margin-left: 1%;
@@ -108,6 +104,13 @@ img { /* image of viking head */
 }
 ::placeholder { /* placeholder text before name is typed (reads "type name here") */
     color: #676767;
+}
+input:-webkit-autofill { /* prevent background color change when autofill */
+    -webkit-box-shadow: 0 0 0 1.3em var(--background-color) inset !important;
+    background-clip: content-box;
+}
+label {
+    min-width: 30%;
 }
 
 /* download image button */
