@@ -8,7 +8,7 @@
 
 	<style>
         :root { /* set the background color of the card */
-            --background-color: #9EB8D9;
+            --background-color: #E0CA29;
         }
 	</style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,11 +25,11 @@
             <div class="header">Fremd Viking Booster Club</div>
         </div>
         <div class="center">
-            <div class="year">2021-2022</div>
-            <div class="card-title">Honored Viking Spirit Membership</div>
+	        <div class="year">2022-2023</div>
+            <div class="card-title">Deluxe PLUS Athletic Membership</div>
             <div>
-                4 tickets per home game: football, boys/girls basketball<br />
-	            6 tickets to cultural events
+                6 tickets per game<br />
+                Home football, home boys &#38; girls basketball
             </div>
             <div class="name">
                 <label for="input">Buyer Name:</label>
@@ -59,6 +59,7 @@
 
     //download image to device
     function download() {
+	    resize();
         domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
             window.saveAs(blob, 'boostercard.png');
         });

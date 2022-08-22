@@ -25,10 +25,10 @@
             <div class="header">Fremd Viking Booster Club</div>
         </div>
         <div class="center">
-            <div class="year">2021-2022</div>
-            <div class="card-title">Deluxe PLUS Athletic Membership</div>
+	        <div class="year">2022-2023</div>
+            <div class="card-title">Deluxe Athletic Membership</div>
             <div>
-                6 tickets per game<br />
+                4 tickets per game<br />
                 Home football, home boys &#38; girls basketball
             </div>
             <div class="name">
@@ -59,6 +59,7 @@
 
     //download image to device
     function download() {
+	    resize();
         domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
             window.saveAs(blob, 'boostercard.png');
         });

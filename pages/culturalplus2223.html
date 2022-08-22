@@ -25,10 +25,10 @@
             <div class="header">Fremd Viking Booster Club</div>
         </div>
         <div class="center">
-            <div class="year">2021-2022</div>
-            <div class="card-title">Deluxe Cultural Membership</div>
+            <div class="year">2022-2023</div>
+            <div class="card-title">Deluxe PLUS Cultural Membership</div>
             <div>
-                6 tickets to cultural events
+                12 tickets to cultural events
             </div>
             <div class="name">
                 <label for="input">Buyer Name:</label>
@@ -58,6 +58,7 @@
 
     //download image to device
     function download() {
+        resize();
         domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
             window.saveAs(blob, 'boostercard.png');
         });

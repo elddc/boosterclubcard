@@ -90,6 +90,8 @@ img { /* image of viking head */
     left: 3%;
     width: 94%;
     display: flex;
+    height: 1.3em;
+    background-color: var(--background-color);
 }
 #input { /* text input including "signature line" */
     background-color: inherit;
