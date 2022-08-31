@@ -63,7 +63,7 @@ Replace the text in `ALL CAPS`.
     <div class="card">
         <!-- top part of card -->
         <div class="row">
-            <img src="../logo.png" alt="Viking Logo"/>
+            <img src="logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
         </div>
 
