@@ -27,7 +27,7 @@ If you are familiar with HTML/CSS/JS, you can disregard the rest of this documen
 
 ### Full HTML Template
 Copy and paste this into a `.html` file to create a new page. 
-Replace the text in `ALL CAPS`.
+Replace the text in `[ALL CAPS]` with square brackets around them.
 
 [Jump To Explanation](#explanations)
 
@@ -46,7 +46,7 @@ Replace the text in `ALL CAPS`.
     <!-- set the background color of the card -->
     <style>
         :root {
-            --background-color: COLOR;
+            --background-color: [COLOR];
         }
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -69,12 +69,12 @@ Replace the text in `ALL CAPS`.
 
         <!-- main content of card -->
         <div class="center">
-            <div class="year">YYYY-YYYY</div>
-            <div class="card-title">TYPE OF CARD</div>
+            <div class="year">[YYYY-YYYY]</div>
+            <div class="card-title">[TYPE OF CARD]</div>
             <div>
-                DESCRIPTION - FIRST LINE
+                [DESCRIPTION - FIRST LINE]
                 <br>
-                DESCRIPTION - SECOND LINE (OPTIONAL)
+                [DESCRIPTION - SECOND LINE (OPTIONAL)]
             </div>
             <div class="name">
                 <label for="input">Buyer Name:</label>
@@ -148,7 +148,7 @@ Be sure to replace all the text in `ALL CAPS`, including the color of the card:
                       or rbg: rbg(R,G,B) -->
 <style>
     :root {
-        --background-color: COLOR;
+        --background-color: [COLOR];
     }
 </style>
 ```
