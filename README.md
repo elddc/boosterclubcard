@@ -18,14 +18,12 @@ If you are familiar with HTML/CSS/JS, you can disregard the rest of this documen
 - [File Directory](#file-directory)
 - [Page Template](#full-html-template)
 - [Explanations](#explanations)
-- [Issues](#known-issues)
 
 ### File Directory
 
 * `styles.css` &larr; styles live here
 * `logo.png` &larr; logo on card, image in browser tab
-* `pages/`
-  * `...` &larr; html files for each card, see below for template with comments
+* `NAMEYYYY.html` &larr; html files for each card, see below for template with comments
 
 ### Full HTML Template
 Copy and paste this into a `.html` file to create a new page. 
@@ -43,7 +41,7 @@ Replace the text in `ALL CAPS`.
     
     <!-- text and image displayed in browser tab -->
     <title>Viking Booster Card</title>
-    <link rel="icon" href="../logo.png">
+    <link rel="icon" href="logo.png">
 
     <!-- set the background color of the card -->
     <style>
@@ -54,7 +52,7 @@ Replace the text in `ALL CAPS`.
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- page styling (must go after Google styling) -->
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
     
     <!-- external libraries used to save image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
