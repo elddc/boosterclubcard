@@ -6,7 +6,9 @@ The viking head logo is taken from the [Fremd Booster Club website](https://www.
 
 ## Documentation
 
-This project is made in vanilla JS/HTML/CSS.
+This codebase is written for maximum readibility and maintainability, even for non-developers.
+
+The project is made in vanilla JS/HTML/CSS.
 There is a separate `.html` file for each type of card, 
 with a single stylesheet shared across all pages. 
 It also uses the `dom-to-image` and `file-saver` libraries.
@@ -66,6 +68,9 @@ Replace the text in `[ALL CAPS]` with square brackets around them.
             <img src="logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
         </div>
+        
+        <!-- separator -->
+        <div class="border"></div>
 
         <!-- main content of card -->
         <div class="center">
@@ -85,35 +90,45 @@ Replace the text in `[ALL CAPS]` with square brackets around them.
 
     <!-- download image button at lower right -->
     <button onClick="download()" class="download">
-        <!-- this uses Google Material Icons, can also be replaced with an image -->
+        <!-- Google Material Icon, can also be replaced with an image -->
         <span class="material-icons">download</span>
     </button>
 </div>
 
 <!-- JavaScript code -->
 <script>
-    //remove focus on text input when Enter key is pressed
-    document.querySelector('#input').addEventListener('keydown', ({key}) => {
-      if (key === 'Enter')
-        document.activeElement.blur();
-    })
-  
-    //make card fit correctly on phones in landscape mode
-    //if this is not important, the next few lines can be removed
+    // make card fit correctly on phones in landscape mode
+    // if this is not important, the next few lines can be removed
     function resize() {
-        //create/update CSS variable --vh based on visible area of screen
+        // create/update CSS variable --vh based on visible area of screen
         document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
     }
     resize();
-    //trigger resize() function when screen dimensions change
+    // trigger resize() function when screen dimensions change
     window.addEventListener('resize', resize);
     
-    //download image to device
+    // remove focus on text input when Enter key is pressed
+    document.querySelector('#input').addEventListener('keydown', ({key}) => {
+        if (key === 'Enter')
+            document.activeElement.blur();
+    })
+    
+    // download image to device
     function download() {
-        //convert HTML element with class 'card' to image
-        //then save as 'boostercard.png'
-        domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
-            window.saveAs(blob, 'boostercard.png'); //file name can be changed
+        // set desired height of final image
+        const imgHeight = 1000;
+        
+        // setup
+        resize();        
+        const card = document.querySelector('.card');
+        const scale = imgHeight/card.offsetHeight;
+        
+        // convert HTML element with class 'card' to image, then save as 'boostercard.png'
+        domtoimage.toPng(card, {height: imgHeight, width: card.offsetWidth * scale, style: {
+                transform: `scale(${scale})`,
+                transformOrigin: 'top left',
+            }}).then((img) => {
+            window.saveAs(img, 'boostercard.png');
         });
     }
 </script>
@@ -129,7 +144,7 @@ See comments for a description of what each section is:
 <!-- This is a comment -->
 
 <script>
-  //This is a comment inside a script tag
+  // This is a comment inside a script tag
 </script>
 
 <style>

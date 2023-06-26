@@ -8,7 +8,7 @@
 
 	<style>
         :root { /* set the background color of the card */
-            --background-color: #27a849;
+            --background-color: #d28d25;
         }
 	</style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,11 +24,13 @@
             <img src="logo.png" alt="Viking Logo"/>
             <div class="header">Fremd Viking Booster Club</div>
         </div>
+        <div class="border"></div>
         <div class="center">
-            <div class="year">2022-2023</div>
-            <div class="card-title">Deluxe Cultural Membership</div>
+	        <div class="year">2023-2024</div>
+            <div class="card-title">Deluxe Athletic Membership</div>
             <div>
-                12 tickets to cultural events
+                6 tickets per game<br />
+                Home football, home boys &#38; girls basketball
             </div>
             <div class="name">
                 <label for="input">Buyer Name:</label>
@@ -43,24 +45,28 @@
 </div>
 
 <script>
-    //responsive dimensions for mobile landscape view
+    // responsive dimensions for mobile landscape view
     function resize() {
         document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
     }
-    window.addEventListener('resize', resize);
-    resize();
 
-    //remove focus on input after Enter key is pressed
+    // remove focus on input after Enter key is pressed
     document.querySelector('#input').addEventListener('keydown', ({key}) => {
         if (key === 'Enter')
             document.activeElement.blur();
     })
 
-    //download image to device
+    // download image to device
     function download() {
         resize();
-        domtoimage.toBlob(document.querySelector('.card')).then((blob) => {
-            window.saveAs(blob, 'boostercard.png');
+        const card = document.querySelector('.card');
+        const imgHeight = 1000;
+        const scale = imgHeight/card.offsetHeight;
+        domtoimage.toPng(card, {height: imgHeight, width: card.offsetWidth * scale, style: {
+                transform: `scale(${scale})`,
+                transformOrigin: 'top left',
+            }}).then((img) => {
+            window.saveAs(img, 'boostercard.png');
         });
     }
 </script>

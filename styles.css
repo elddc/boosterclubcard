@@ -2,8 +2,8 @@
 @media screen and (max-width: 570px) {
     div.card {
         width: 100vw;
-        height: calc(100vw / 1.57);
-        font-size: 4vw;
+        height: calc(100vw / 1.6);
+        font-size: 3.8vw;
     }
 }
 
@@ -11,7 +11,7 @@
 @media screen and (max-height: 350px) {
     div.card {
         height: calc(var(--vh, 1vh) * 100); /* --vh variable comes from JS */
-        width: calc(var(--vh, 1vh) * 157);
+        width: calc(var(--vh, 1vh) * 160);
         font-size: calc(var(--vh, 1vh) * 6);
     }
 }
@@ -33,7 +33,7 @@ body, html { /* page */
 .card { /* digital booster card */
     position: relative;
     width: 26em;
-    height: 15em; /* keep aspect ratio (width/height) close to 1.57 for best results */
+    height: 16em; /* keep aspect ratio (width/height) close to 1.6 for best results */
     background-color: var(--background-color);
 }
 
@@ -44,14 +44,12 @@ body, html { /* page */
     justify-content: space-between;
     padding: 0 5%;
     height: 40%;
-
-    /* bottom border */
-    box-shadow: inset 0 -.8em black;
 }
 img { /* image of viking head */
     height: 6em;
     width: 6.5em; /* stretched to match the original look; source image has aspect ratio of 1 */
     padding-top: .4em;
+    z-index: 1;
 }
 .header { /* "Fremd Viking Booster Club" text */
     /* layout */
@@ -64,15 +62,26 @@ img { /* image of viking head */
     /* text formatting */
     text-transform: uppercase; /* makes text all caps */
     font-weight: bold;
-    font-size: 1.7em;
+    font-size: 1.8em;
     line-height: 1.1;
     text-align: center;
+}
+
+/* separator between top and bottom sections */
+.border {
+    position: relative;
+    top: -.8em;
+    left: 0;
+    height: .8em;
+    background: black;
+    width: 100%;
+    z-index: 0;
 }
 
 /* bottom section */
 .center div { /* container */
     text-align: center;
-    padding-top: 1.6%;
+    padding-bottom: 1.6%;
 }
 .year { /* years */
     font-weight: bold;
@@ -84,7 +93,7 @@ img { /* image of viking head */
     font-size: 1.45em;
     line-height: 1.1;
 }
-.name { /* name of buyer */
+div.name { /* name of buyer */
     position: absolute;
     bottom: .45em;
     left: 3%;
@@ -92,20 +101,28 @@ img { /* image of viking head */
     display: flex;
     height: 1.3em;
     background-color: var(--background-color);
+    align-items: end;
+    padding-bottom: 0;
 }
-#input { /* text input including "signature line" */
+input { /* text input including "signature line" */
     background-color: inherit;
     font: inherit;
     border: none;
-    border-radius: 0;
     border-bottom: 2px solid black;
+    border-radius: 0;
     flex: 1;
     margin-left: 1%;
     text-align: center;
     margin-top: -2px;
+    height: 1.2em;
+}
+input:focus, input:focus-visible {
+    outline: none !important;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 ::placeholder { /* placeholder text before name is typed (reads "type name here") */
-    color: #676767;
+    color: #505050;
 }
 input:-webkit-autofill { /* prevent background color change when autofill */
     -webkit-box-shadow: 0 0 0 1.3em var(--background-color) inset !important;
@@ -125,5 +142,10 @@ label {
     right: 2em;
 }
 .material-icons { /* icon */
-    font-size: 2em;
+    font-size: 2.5em;
+}
+.download:focus, .download:focus-visible {
+    outline: none;
+    border: 2px solid white;
+    border-radius: 5px;
 }
